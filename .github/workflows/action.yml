@@ -44,7 +44,4 @@ jobs:
       - name: Start virtual display 🖥️
         run: |
           Xvfb :99 &
-          export DISPLAY=:99
-
-      - name: Run the script
-        run: npm start
+          DISPLAY=:99 npm start
