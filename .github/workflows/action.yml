@@ -30,7 +30,7 @@ jobs:
         run: echo "${{ secrets.ACCOUNTS_JSON }}" > src/accounts.json
 
       - name: Install dependencies
-        run: npm ci
+        run: npm i
 
       - name: Install Playwright Browsers & Dependencies 🌐
         run: npx playwright install --with-deps
