@@ -27,7 +27,10 @@ jobs:
           node-version: '20'
 
       - name: Create accounts.json from secret 📝
-        run: echo "${{ secrets.ACCOUNTS_JSON }}" > src/accounts.json
+        run: |
+          cat << 'EOF' > src/accounts.json
+          ${{ secrets.ACCOUNTS_JSON }}
+          EOF
 
       - name: Install dependencies
         run: npm i
