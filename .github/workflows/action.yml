@@ -42,6 +42,8 @@ jobs:
       - name: Modify config.json ⚙️
         run: |
           sed -i 's/"clusters": 1/"clusters": 2/g' src/config.json
+          sed -i 's/"enabled": false/"enabled": true/g' src/config.json
+          sed -i 's#\"url\": \"\"#\"url\": \"${{ secrets.WEBHOOK_URL }}\"#' src/config.json
 
       - name: Install dependencies
         run: npm i
