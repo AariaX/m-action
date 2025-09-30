@@ -1,4 +1,4 @@
-name: Microsoft Rewards Script Headful
+name: Test Browser Headful
 
 on:
   workflow_dispatch:
@@ -16,7 +16,7 @@ jobs:
       - name: Cache and Restore Sessions 💾
         uses: actions/cache@v4
         with:
-          path: sessions
+          path: dist/browser/sessions
           key: ${{ runner.os }}-sessions-${{ github.ref }}
           restore-keys: |
             ${{ runner.os }}-sessions-
@@ -27,7 +27,6 @@ jobs:
           authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
           args: --exit-node=100.65.231.32
           tailscaled-args: --tun=userspace-networking --socks5-server=localhost:1080
-
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -53,3 +52,4 @@ jobs:
         run: |
           Xvfb :99 &
           DISPLAY=:99 npm start
+
