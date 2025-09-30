@@ -39,6 +39,9 @@ jobs:
           ${{ secrets.ACCOUNTS_JSON }}
           EOF
 
+      - name: Modify config.json ⚙️
+        run: sed -i 's/"clusters": 1/"clusters": 2/g' src/config.json
+
       - name: Install dependencies
         run: npm i
 
