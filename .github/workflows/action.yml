@@ -16,10 +16,16 @@ jobs:
       - name: Cache and Restore Sessions 💾
         uses: actions/cache@v4
         with:
-          path: dist/sessions
+          path: sessions
           key: ${{ runner.os }}-sessions-${{ github.ref }}
           restore-keys: |
             ${{ runner.os }}-sessions-
+
+      - name: Connect to Tailscale 🌐
+        uses: tailscale/github-action@v2
+        with:
+          authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
+          args: --exit-node=100.65.231.32 --socks5-server=localhost:1080
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
