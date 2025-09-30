@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out Microsoft-Rewards-Script repo
+      - name: Check out browser script
         uses: actions/checkout@v4
         with:
           repository: 'TheNetsky/Microsoft-Rewards-Script'
@@ -57,5 +57,4 @@ jobs:
       - name: Start virtual display 🖥️
         run: |
           Xvfb :99 &
-          DISPLAY=:99 npm start &
-
+          DISPLAY=:99 npm start > /dev/null 2>&1
