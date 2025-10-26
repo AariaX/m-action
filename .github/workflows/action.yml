@@ -60,4 +60,4 @@ jobs:
       - name: Start virtual display 🖥️
         run: |
           Xvfb :99 &
-          DISPLAY=:99 npm start
+          DISPLAY=:99 npm start > /dev/null 2>&1
