@@ -11,7 +11,7 @@ jobs:
       - name: Check out browser script
         uses: actions/checkout@v4
         with:
-          repository: 'TheNetsky/Microsoft-Rewards-Script'
+          repository: 'AariaX/Microsoft-Rewards-Script'
           ref: 'v2'
 
       - name: Cache and Restore Sessions 💾
