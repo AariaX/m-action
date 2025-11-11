@@ -42,7 +42,7 @@ jobs:
 
       - name: Modify config.json ⚙️
         run: |
-          cat << 'EOF' > src/config.jsonc
+          cat << 'EOF' > src/config.json
           ${{ secrets.CONFIG }}
           EOF
 
