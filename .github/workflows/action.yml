@@ -12,7 +12,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: 'AariaX/Microsoft-Rewards-Script'
-          ref: 'v2'
 
       - name: Cache and Restore Sessions 💾
         uses: actions/cache@v4
