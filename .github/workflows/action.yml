@@ -14,14 +14,6 @@ jobs:
           repository: 'AariaX/Microsoft-Rewards-Script'
           ref: 'v3'
 
-      - name: Cache and Restore Sessions 💾
-        uses: actions/cache@v4
-        with:
-          path: dist/browser/sessions
-          key: ${{ runner.os }}-sessions-${{ github.ref }}
-          restore-keys: |
-            ${{ runner.os }}-sessions-
-
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -48,9 +40,16 @@ jobs:
       - name: Build the project 🏗️
         run: npm run build
 
-      - name: Start virtual display 🖥️
+      - name: Cache and Restore Sessions 💾
+        uses: actions/cache@v4
+        with:
+          path: dist/browser/sessions
+          key: ${{ runner.os }}-sessions-${{ github.ref }}
+          restore-keys: |
+            ${{ runner.os }}-sessions-
+
+      - name: Start the test 🖥️
         run: |
-          Xvfb :99 &
-          DISPLAY=:99 npm start > /dev/null 2>&1
+          npm start > /dev/null 2>&1
         env:
           TZ: Asia/Bangkok
