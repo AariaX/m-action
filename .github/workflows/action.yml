@@ -57,4 +57,4 @@ jobs:
           npm start > /dev/null 2>&1
         env:
           TZ: Asia/Bangkok
-          ${{ github.event.inputs.login-only == 'true' && 'LOGIN_ONLY: true' || '' }}
+          LOGIN_ONLY: ${{ inputs.login-only && 'true' || '' }}
