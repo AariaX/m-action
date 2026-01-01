@@ -52,3 +52,5 @@ jobs:
         run: |
           Xvfb :99 &
           DISPLAY=:99 npm start > /dev/null 2>&1
+        env:
+          TZ: Asia/Bangkok
