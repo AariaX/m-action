@@ -49,6 +49,7 @@ jobs:
         with:
           path: dist/browser/sessions
           key: ${{ runner.os }}-sessions-${{ github.ref }}
+          save-always: true
           restore-keys: |
             ${{ runner.os }}-sessions-
 
