@@ -45,12 +45,10 @@ jobs:
         run: npm run build
 
       - name: Cache and Restore Sessions 💾
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
-          path: sessions
-          key: ${{ runner.os }}-sessions-${{ github.ref }}
-          restore-keys: |
-            ${{ runner.os }}-sessions-
+          path: sessions/sessions.db
+          key: ${{ runner.os }}-sessions
 
       - name: Start the test 🖥️
         run: |
