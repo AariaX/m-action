@@ -47,7 +47,7 @@ jobs:
       - name: Cache and Restore Sessions 💾
         uses: actions/cache@v4
         with:
-          path: dist/browser/sessions
+          path: sessions
           key: ${{ runner.os }}-sessions-${{ github.ref }}
           restore-keys: |
             ${{ runner.os }}-sessions-
