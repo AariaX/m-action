@@ -25,8 +25,8 @@ jobs:
 
       - name: Create accounts.json from secret 📝
         run: |
-          cat << 'EOF' > src/accounts.json
-          ${{ secrets.ACCOUNTS_JSON }}
+          cat << 'EOF' > .env
+          ${{ secrets.ACCOUNTS }}
           EOF
 
       - name: Modify config.json ⚙️
