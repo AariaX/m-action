@@ -1,6 +1,7 @@
 name: Test Browser Headful
 
 on:
+  workflow_dispatch: 
   schedule:
     - cron: "0 7,15 * * *"
       timezone: "Asia/Bangkok"
