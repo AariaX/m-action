@@ -44,11 +44,12 @@ jobs:
         uses: actions/cache@v6
         with:
           path: sessions/sessions.db
-          key: ${{ runner.os }}-sessions
+          key: ${{ runner.os }}-sessions-${{ github.run_id }}
+          restore-keys: |
+            ${{ runner.os }}-sessions
 
       - name: Start the test 🖥️
         run: |
           npm start > /dev/null 2>&1
         env:
           TZ: Asia/Bangkok
-          LOGIN_ONLY: ${{ inputs.login-only && 'true' || '' }}
